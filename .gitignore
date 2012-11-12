@@ -1,0 +1,7 @@
+/build
+/debian/files
+/debian/graphite-web.debhelper.log
+/debian/graphite-web.postinst.debhelper
+/debian/graphite-web.prerm.debhelper
+/debian/graphite-web.substvars
+/debian/graphite-web
