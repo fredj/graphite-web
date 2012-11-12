@@ -2,7 +2,7 @@ Source: graphite-web
 Section: utils
 Priority: extra
 Maintainer: Mathieu Parent <sathieu@debian.org>
-Build-Depends: debhelper (>= 8.0.0)
+Build-Depends: debhelper (>= 8.0.0), python-all (>= 2.6.6-3~)
 Standards-Version: 3.9.3
 DM-Upload-Allowed: yes
 Homepage: https://github.com/graphite-project/graphite-web
@@ -11,8 +11,8 @@ Vcs-Browser: http://git.debian.org/?p=collab-maint/graphite-web.git;a=summary
 
 Package: graphite-web
 Architecture: all
-Depends: ${misc:Depends}
-Recommends: graphite-carbon
+Depends: ${misc:Depends}, ${python:Depends}, python-whisper, python-cairo, python-django (>= 1.1), python-django-tagging
+Recommends: graphite-carbon, python-memcache, python-sqlite, python-ldap
 Description: frontend webapp for Graphite
  Graphite is a web application using the Twisted framework to provide
  real-time visualization and storage of numeric time-series data.
@@ -21,3 +21,4 @@ Description: frontend webapp for Graphite
  as Whisper database files.
  .
  This package provide the web applciation.
+

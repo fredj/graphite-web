@@ -9,5 +9,29 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
+DESTDIR=debian/graphite-web
+
 %:
-	dh $@ 
+	dh $@ --with python2
+
+override_dh_auto_install:
+	dh_auto_install -- --install-scripts=/usr/share/graphite/bin --install-lib=/usr/lib/python2.6/dist-packages --install-data=/usr/share/graphite
+	# Extra license
+	rm $(DESTDIR)/usr/share/graphite/webapp/content/js/ext/license.txt
+	# Move configuration to proper place
+	mkdir $(DESTDIR)/etc
+	mv $(DESTDIR)/usr/share/graphite/conf $(DESTDIR)/etc/
+	# Move examples to proper place
+	mkdir -p $(DESTDIR)/usr/share/doc/graphite-web
+	mv $(DESTDIR)/usr/share/graphite/examples $(DESTDIR)/usr/share/doc/graphite-web/
+	# Move log to proper place
+	mkdir -p $(DESTDIR)/var/log
+	mv $(DESTDIR)/usr/share/graphite/storage/log $(DESTDIR)/var/log/graphite
+	# Move data to proper place
+	mkdir -p $(DESTDIR)/var/lib
+	mv $(DESTDIR)/usr/share/graphite/storage $(DESTDIR)/var/lib/graphite
+
+override_dh_fixperms:
+	# Remove execute bit on some static data
+	find $(DESTDIR)/usr/share/graphite/webapp -type f -exec chmod -x {} \;
+	dh_fixperms
