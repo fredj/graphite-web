@@ -1,0 +1,23 @@
+Source: graphite-web
+Section: utils
+Priority: extra
+Maintainer: Mathieu Parent <sathieu@debian.org>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+DM-Upload-Allowed: yes
+Homepage: https://github.com/graphite-project/graphite-web
+Vcs-Git: git://git.debian.org/collab-maint/graphite-web.git
+Vcs-Browser: http://git.debian.org/?p=collab-maint/graphite-web.git;a=summary
+
+Package: graphite-web
+Architecture: all
+Depends: ${misc:Depends}
+Recommends: graphite-carbon
+Description: frontend webapp for Graphite
+ Graphite is a web application using the Twisted framework to provide
+ real-time visualization and storage of numeric time-series data.
+ .
+ The Carbon daemon processes the incoming time-series data and saves it
+ as Whisper database files.
+ .
+ This package provide the web applciation.
