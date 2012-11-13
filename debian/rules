@@ -38,5 +38,6 @@ override_dh_auto_install:
 override_dh_fixperms:
 	# Remove execute bit on some static data
 	find $(DESTDIR)/usr/share/graphite/webapp -type f -exec chmod -x {} \;
+	chmod -x $(DESTDIR)/etc/graphite-web/graphite.wsgi.example
 	dh_fixperms
 	chown www-data $(DESTDIR)/var/log/graphite/webapp/
