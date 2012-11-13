@@ -22,6 +22,7 @@ override_dh_auto_install:
 	mkdir $(DESTDIR)/etc
 	mv $(DESTDIR)/usr/share/graphite/conf $(DESTDIR)/etc/graphite-web
 	dh_link /etc/graphite-web /usr/share/graphite/conf
+	mv $(DESTDIR)/etc/graphite-web/graphite.wsgi.example $(DESTDIR)/etc/graphite-web/graphite.wsgi
 	# Move local settings to proper place
 	mv $(DESTDIR)/usr/lib/python2.6/dist-packages/graphite/local_settings.py.example $(DESTDIR)/etc/graphite-web
 	dh_link /etc/graphite-web/local_settings.py /usr/lib/python2.6/dist-packages/graphite/local_settings.py
@@ -41,6 +42,6 @@ override_dh_auto_install:
 override_dh_fixperms:
 	# Remove execute bit on some static data
 	find $(DESTDIR)/usr/share/graphite/webapp -type f -exec chmod -x {} \;
-	chmod -x $(DESTDIR)/etc/graphite-web/graphite.wsgi.example
+	chmod -x $(DESTDIR)/etc/graphite-web/graphite.wsgi
 	dh_fixperms
 	chown www-data $(DESTDIR)/var/log/graphite/webapp/
