@@ -1,0 +1,109 @@
+From 1680cfb9302195628a9065141685e368e617d56d Mon Sep 17 00:00:00 2001
+From: Mathieu Parent <mathieu.parent@nantesmetropole.fr>
+Date: Tue, 13 Nov 2012 16:35:17 +0100
+Subject: [PATCH] Fix path for FHS
+
+---
+ bin/build-index.sh                        |    2 +-
+ conf/graphite.wsgi.example                |    2 +-
+ webapp/graphite/local_settings.py.example |   26 +++++++++++++-------------
+ webapp/graphite/settings.py               |    2 +-
+ 4 files changed, 16 insertions(+), 16 deletions(-)
+
+diff --git a/bin/build-index.sh b/bin/build-index.sh
+index ce7b5cc..bd2166e 100755
+--- a/bin/build-index.sh
++++ b/bin/build-index.sh
+@@ -2,7 +2,7 @@
+ 
+ if [ "$GRAPHITE_ROOT" = "" ]
+ then
+-  GRAPHITE_ROOT="/opt/graphite"
++  GRAPHITE_ROOT="/usr/share/graphite"
+ fi
+ 
+ if [ "$GRAPHITE_STORAGE_DIR" = "" ]
+diff --git a/conf/graphite.wsgi.example b/conf/graphite.wsgi.example
+index d89a670..95ac1c6 100755
+--- a/conf/graphite.wsgi.example
++++ b/conf/graphite.wsgi.example
+@@ -1,5 +1,5 @@
+ import os, sys
+-sys.path.append('/opt/graphite/webapp')
++#sys.path.append('/usr/share/graphite/webapp')
+ os.environ['DJANGO_SETTINGS_MODULE'] = 'graphite.settings'
+ 
+ import django.core.handlers.wsgi
+diff --git a/webapp/graphite/local_settings.py.example b/webapp/graphite/local_settings.py.example
+index 81f2d8a..8744e91 100644
+--- a/webapp/graphite/local_settings.py.example
++++ b/webapp/graphite/local_settings.py.example
+@@ -41,31 +41,31 @@
+ #####################################
+ # Filesystem Paths #
+ #####################################
+-# Change only GRAPHITE_ROOT if your install is merely shifted from /opt/graphite
++# Change only GRAPHITE_ROOT if your install is merely shifted from /usr/share/graphite
+ # to somewhere else
+-#GRAPHITE_ROOT = '/opt/graphite'
++#GRAPHITE_ROOT = '/usr/share/graphite'
+ 
+-# Most installs done outside of a separate tree such as /opt/graphite will only
++# Most installs done outside of a separate tree such as /usr/share/graphite will only
+ # need to change these three settings. Note that the default settings for each
+ # of these is relative to GRAPHITE_ROOT
+-#CONF_DIR = '/opt/graphite/conf'
+-#STORAGE_DIR = '/opt/graphite/storage'
+-#CONTENT_DIR = '/opt/graphite/webapp/content'
++#CONF_DIR = '/usr/share/graphite/conf'
++#STORAGE_DIR = '/usr/share/graphite/storage'
++#CONTENT_DIR = '/usr/share/graphite/webapp/content'
+ 
+ # To further or fully customize the paths, modify the following. Note that the
+ # default settings for each of these are relative to CONF_DIR and STORAGE_DIR
+ #
+ ## Webapp config files
+-#DASHBOARD_CONF = '/opt/graphite/conf/dashboard.conf'
+-#GRAPHTEMPLATES_CONF = '/opt/graphite/conf/graphTemplates.conf'
++#DASHBOARD_CONF = '/usr/share/graphite/conf/dashboard.conf'
++#GRAPHTEMPLATES_CONF = '/usr/share/graphite/conf/graphTemplates.conf'
+ 
+ ## Data directories
+ # NOTE: If any directory is unreadable in DATA_DIRS it will break metric browsing
+-#WHISPER_DIR = '/opt/graphite/storage/whisper'
+-#RRD_DIR = '/opt/graphite/storage/rrd'
++#WHISPER_DIR = '/usr/share/graphite/storage/whisper'
++#RRD_DIR = '/usr/share/graphite/storage/rrd'
+ #DATA_DIRS = [WHISPER_DIR, RRD_DIR] # Default: set from the above variables
+-#LOG_DIR = '/opt/graphite/storage/log/webapp'
+-#INDEX_FILE = '/opt/graphite/storage/index'  # Search index file
++#LOG_DIR = '/usr/share/graphite/storage/log/webapp'
++#INDEX_FILE = '/usr/share/graphite/storage/index'  # Search index file
+ 
+ 
+ #####################################
+@@ -140,7 +140,7 @@
+ # specification as the old database specification style is removed in 1.4
+ #DATABASES = {
+ #    'default': {
+-#        'NAME': '/opt/graphite/storage/graphite.db',
++#        'NAME': '/usr/share/graphite/storage/graphite.db',
+ #        'ENGINE': 'django.db.backends.sqlite3',
+ #        'USER': '',
+ #        'PASSWORD': '',
+diff --git a/webapp/graphite/settings.py b/webapp/graphite/settings.py
+index 35f7be2..7b1b59b 100644
+--- a/webapp/graphite/settings.py
++++ b/webapp/graphite/settings.py
+@@ -28,7 +28,7 @@ DEBUG = False
+ JAVASCRIPT_DEBUG = False
+ 
+ # Filesystem layout
+-WEB_DIR = dirname( abspath(__file__) )
++WEB_DIR = '/usr/share/graphite/webapp/graphite'
+ WEBAPP_DIR = dirname(WEB_DIR)
+ GRAPHITE_ROOT = dirname(WEBAPP_DIR)
+ THIRDPARTY_DIR = join(WEB_DIR,'thirdparty')
+-- 
+1.7.10.4
+
