@@ -22,6 +22,9 @@ override_dh_auto_install:
 	mkdir $(DESTDIR)/etc
 	mv $(DESTDIR)/usr/share/graphite/conf $(DESTDIR)/etc/graphite-web
 	dh_link /etc/graphite-web /usr/share/graphite/conf
+	# Move local settings to proper place
+	mv $(DESTDIR)/usr/lib/python2.6/dist-packages/graphite/local_settings.py.example $(DESTDIR)/etc/graphite-web
+	dh_link /etc/graphite-web/local_settings.py /usr/lib/python2.6/dist-packages/graphite/local_settings.py
 	# Move examples to proper place
 	mkdir -p $(DESTDIR)/usr/share/doc/graphite-web
 	mv $(DESTDIR)/usr/share/graphite/examples $(DESTDIR)/usr/share/doc/graphite-web/
