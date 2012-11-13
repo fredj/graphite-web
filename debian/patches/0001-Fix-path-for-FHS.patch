@@ -1,4 +1,4 @@
-From 1680cfb9302195628a9065141685e368e617d56d Mon Sep 17 00:00:00 2001
+From 8a06bc56dc6ff0072e20b39c81937a1fd25d455f Mon Sep 17 00:00:00 2001
 From: Mathieu Parent <mathieu.parent@nantesmetropole.fr>
 Date: Tue, 13 Nov 2012 16:35:17 +0100
 Subject: [PATCH] Fix path for FHS
@@ -7,8 +7,8 @@ Subject: [PATCH] Fix path for FHS
  bin/build-index.sh                        |    2 +-
  conf/graphite.wsgi.example                |    2 +-
  webapp/graphite/local_settings.py.example |   26 +++++++++++++-------------
- webapp/graphite/settings.py               |    2 +-
- 4 files changed, 16 insertions(+), 16 deletions(-)
+ webapp/graphite/settings.py               |    4 ++--
+ 4 files changed, 17 insertions(+), 17 deletions(-)
 
 diff --git a/bin/build-index.sh b/bin/build-index.sh
 index ce7b5cc..bd2166e 100755
@@ -35,7 +35,7 @@ index d89a670..95ac1c6 100755
  
  import django.core.handlers.wsgi
 diff --git a/webapp/graphite/local_settings.py.example b/webapp/graphite/local_settings.py.example
-index 81f2d8a..8744e91 100644
+index 81f2d8a..c56f45b 100644
 --- a/webapp/graphite/local_settings.py.example
 +++ b/webapp/graphite/local_settings.py.example
 @@ -41,31 +41,31 @@
@@ -87,12 +87,12 @@ index 81f2d8a..8744e91 100644
  #DATABASES = {
  #    'default': {
 -#        'NAME': '/opt/graphite/storage/graphite.db',
-+#        'NAME': '/usr/share/graphite/storage/graphite.db',
++#        'NAME': '/var/lib/graphite/web/graphite.db',
  #        'ENGINE': 'django.db.backends.sqlite3',
  #        'USER': '',
  #        'PASSWORD': '',
 diff --git a/webapp/graphite/settings.py b/webapp/graphite/settings.py
-index 35f7be2..7b1b59b 100644
+index 35f7be2..185be5f 100644
 --- a/webapp/graphite/settings.py
 +++ b/webapp/graphite/settings.py
 @@ -28,7 +28,7 @@ DEBUG = False
@@ -104,6 +104,15 @@ index 35f7be2..7b1b59b 100644
  WEBAPP_DIR = dirname(WEB_DIR)
  GRAPHITE_ROOT = dirname(WEBAPP_DIR)
  THIRDPARTY_DIR = join(WEB_DIR,'thirdparty')
+@@ -152,7 +152,7 @@ if not DATA_DIRS:
+ # This is set here so that a user-set STORAGE_DIR is available
+ if 'sqlite3' in DATABASE_ENGINE \
+     and not DATABASE_NAME:
+-  DATABASE_NAME = join(STORAGE_DIR, 'graphite.db')
++  DATABASE_NAME = join(STORAGE_DIR, 'web', 'graphite.db')
+ 
+ # Caching shortcuts
+ if MEMCACHE_HOSTS:
 -- 
 1.7.10.4
 

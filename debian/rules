@@ -38,6 +38,7 @@ override_dh_auto_install:
 	mkdir -p $(DESTDIR)/var/lib
 	mv $(DESTDIR)/usr/share/graphite/storage $(DESTDIR)/var/lib/graphite
 	dh_link /var/lib/graphite /usr/share/graphite/storage
+	mkdir $(DESTDIR)/var/lib/graphite/web
 
 override_dh_fixperms:
 	# Remove execute bit on some static data
@@ -45,3 +46,4 @@ override_dh_fixperms:
 	chmod -x $(DESTDIR)/etc/graphite-web/graphite.wsgi
 	dh_fixperms
 	chown www-data $(DESTDIR)/var/log/graphite/webapp/
+	chown www-data $(DESTDIR)/var/lib/graphite/web
