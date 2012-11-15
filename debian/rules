@@ -24,6 +24,7 @@ override_dh_auto_install:
 	mv $(DESTDIR)/etc/graphite-web/graphite.wsgi.example $(DESTDIR)/etc/graphite-web/graphite.wsgi
 	# Move local settings to proper place
 	mv $(DESTDIR)/usr/lib/python2.6/dist-packages/graphite/local_settings.py.example $(DESTDIR)/etc/graphite-web
+	ln -s /etc/graphite-web/local_settings.py $(DESTDIR)/usr/lib/python2.6/dist-packages/graphite/local_settings.py
 	# Move examples to proper place
 	mkdir -p $(DESTDIR)/usr/share/doc/graphite-web
 	mv $(DESTDIR)/usr/share/graphite/examples $(DESTDIR)/usr/share/doc/graphite-web/

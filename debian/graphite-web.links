@@ -1,5 +1,4 @@
 /etc/graphite-web			/usr/share/graphite/conf
-/etc/graphite-web/local_settings.py	/usr/lib/python2.6/dist-packages/graphite/local_settings.py
 /usr/share/doc/graphite-web		/usr/share/graphite/examples
 /var/lib/graphite			/usr/share/graphite/storage
 /var/log/graphite			/var/lib/graphite/log
