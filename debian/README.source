@@ -1,0 +1,5 @@
+The included JS files are removed:
+
+git rm webapp/content/js/jquery.js
+git rm webapp/content/js/window/prototype.js
+git rm -r webapp/content/js/scriptaculous/

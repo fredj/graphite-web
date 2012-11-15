@@ -1,4 +1,4 @@
-graphite-web (0.9.10-1) unstable; urgency=low
+graphite-web (0.9.10~dfsg0-1) unstable; urgency=low
 
   * Initial release (Closes: #659632)
 
