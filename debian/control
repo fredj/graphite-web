@@ -11,7 +11,7 @@ Vcs-Browser: http://git.debian.org/?p=collab-maint/graphite-web.git;a=summary
 
 Package: graphite-web
 Architecture: all
-Depends: ${misc:Depends}, ${python:Depends}, python-whisper, python-cairo, python-django (>= 1.1), python-django-tagging, python-tz
+Depends: ${misc:Depends}, ${python:Depends}, python-whisper, python-cairo, python-django (>= 1.1), python-django-tagging, python-tz, libjs-scriptaculous, libjs-jquery, libjs-prototype
 Recommends: graphite-carbon, python-memcache, python-sqlite, python-ldap
 Description: frontend webapp for Graphite
  Graphite is a web application using the Twisted framework to provide

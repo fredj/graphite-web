@@ -21,23 +21,18 @@ override_dh_auto_install:
 	# Move configuration to proper place
 	mkdir $(DESTDIR)/etc
 	mv $(DESTDIR)/usr/share/graphite/conf $(DESTDIR)/etc/graphite-web
-	dh_link /etc/graphite-web /usr/share/graphite/conf
 	mv $(DESTDIR)/etc/graphite-web/graphite.wsgi.example $(DESTDIR)/etc/graphite-web/graphite.wsgi
 	# Move local settings to proper place
 	mv $(DESTDIR)/usr/lib/python2.6/dist-packages/graphite/local_settings.py.example $(DESTDIR)/etc/graphite-web
-	dh_link /etc/graphite-web/local_settings.py /usr/lib/python2.6/dist-packages/graphite/local_settings.py
 	# Move examples to proper place
 	mkdir -p $(DESTDIR)/usr/share/doc/graphite-web
 	mv $(DESTDIR)/usr/share/graphite/examples $(DESTDIR)/usr/share/doc/graphite-web/
-	dh_link /usr/share/doc/graphite-web /usr/share/graphite/examples
 	# Move log to proper place
 	mkdir -p $(DESTDIR)/var/log
 	mv $(DESTDIR)/usr/share/graphite/storage/log $(DESTDIR)/var/log/graphite
-	dh_link /var/log/graphite /usr/share/graphite/storage/log
 	# Move data to proper place
 	mkdir -p $(DESTDIR)/var/lib
 	mv $(DESTDIR)/usr/share/graphite/storage $(DESTDIR)/var/lib/graphite
-	dh_link /var/lib/graphite /usr/share/graphite/storage
 	mkdir $(DESTDIR)/var/lib/graphite/web
 
 override_dh_fixperms:

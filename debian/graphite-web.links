@@ -1,0 +1,8 @@
+/etc/graphite-web			/usr/share/graphite/conf
+/etc/graphite-web/local_settings.py	/usr/lib/python2.6/dist-packages/graphite/local_settings.py
+/usr/share/doc/graphite-web		/usr/share/graphite/examples
+/var/lib/graphite			/usr/share/graphite/storage
+/var/log/graphite			/var/lib/graphite/log
+/usr/share/javascript/prototype/prototype.js	/usr/share/graphite/webapp/content/js/window/prototype.js
+/usr/share/javascript/jquery/jquery.js		/usr/share/graphite/webapp/content/js/jquery.js
+/usr/share/javascript/scriptaculous		/usr/share/graphite/webapp/content/js/scriptaculous
