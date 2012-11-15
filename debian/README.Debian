@@ -1,0 +1,10 @@
+Basic setup:
+============
+
+Once installed, you will need to setup the database:
+
+  python /usr/lib/python2.7/dist-packages/graphite/manage.py syncdb
+
+You will also need to build the index of metrics:
+
+  /usr/share/graphite/bin/build-index.sh
