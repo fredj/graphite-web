@@ -20,5 +20,5 @@ Description: frontend webapp for Graphite
  The Carbon daemon processes the incoming time-series data and saves it
  as Whisper database files.
  .
- This package provide the web applciation.
+ This package provide the web application.
 
