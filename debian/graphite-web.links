@@ -3,6 +3,7 @@
 /var/lib/graphite			/usr/share/graphite/storage
 /var/log/graphite			/var/lib/graphite/log
 /usr/share/javascript/prototype/prototype.js	/usr/share/graphite/webapp/content/js/window/prototype.js
+/usr/share/javascript/scriptaculous/effects.js  /usr/share/graphite/webapp/content/js/window/effects.js
 /usr/share/javascript/jquery/jquery.js		/usr/share/graphite/webapp/content/js/jquery.js
 /usr/share/javascript/scriptaculous		/usr/share/graphite/webapp/content/js/scriptaculous
 /usr/share/javascript/flot/jquery.flot.js /usr/share/graphite/webapp/content/js/jquery.flot.js
