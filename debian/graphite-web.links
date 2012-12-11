@@ -5,3 +5,6 @@
 /usr/share/javascript/prototype/prototype.js	/usr/share/graphite/webapp/content/js/window/prototype.js
 /usr/share/javascript/jquery/jquery.js		/usr/share/graphite/webapp/content/js/jquery.js
 /usr/share/javascript/scriptaculous		/usr/share/graphite/webapp/content/js/scriptaculous
+/usr/share/javascript/flot/jquery.flot.js /usr/share/graphite/webapp/content/js/jquery.flot.js
+/usr/share/javascript/flot/jquery.flot.selection.js /usr/share/graphite/webapp/content/js/jquery.flot.selection.js
+/usr/share/javascript/flot/jquery.flot.crosshair.js /usr/share/graphite/webapp/content/js/jquery.flot.crosshair.js
